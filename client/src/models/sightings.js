@@ -29,10 +29,10 @@ Sightings.prototype.deleteSighting = function (sightingId) {
     .catch(console.error);
 };
 
-ClassName.prototype.postNewSighting = function () {
+// ClassName.prototype.postNewSighting = function () {
   // create a new request helper with this.url
   // ask req.helper to post with incoming event
   // with the response from server: publish the entire list of viewings
-};
+// };
 
 module.exports = Sightings;
