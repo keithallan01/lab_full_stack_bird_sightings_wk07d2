@@ -18,8 +18,14 @@ SightingFormView.prototype.handleSubmit = function (evt) {
 
 }
 
-SightingFormView.prototype.createNewViewing = function () {
+SightingFormView.prototype.createNewViewing = function (form) {
+  const newViewing = {
+    species: form.species.value,
+    location: form.location.value,
+    date: form.date.value
+  }
 
+  return newViewing
 };
 
 module.exports = SightingFormView;
