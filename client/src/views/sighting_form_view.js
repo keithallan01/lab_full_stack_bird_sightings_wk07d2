@@ -16,7 +16,7 @@ SightingFormView.prototype.handleSubmit = function (evt) {
   // create a new viewing instance from the event
   // publish it to the sightings model
   const newViewing = this.createNewViewing(evt.target);
-  debugger
+  // debugger
   PubSub.publish('SightingView: sighting-submitted', newViewing);
   evt.target.reset();
   console.log(newViewing);

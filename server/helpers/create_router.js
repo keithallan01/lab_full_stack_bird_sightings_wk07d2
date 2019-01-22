@@ -43,11 +43,11 @@ const createRouter = function (collection) {
   });
 
   router.post('/', (req, res) => {
-    const newItem = req.body;
+    const newItem = req.body; // save the incoming data from the request_helper to a constant
     collection
-      .insertOne(newItem)
-      .then(() => collection.find().toArray())
-      .then((docs) => res.json(docs))
+      .insertOne(newItem) // add this item to the collection
+      .then(() => collection.find().toArray()) // request all the entries in the database back
+      .then((docs) => res.json(docs)) // send those back as a response
       .catch(console.error);
   })
 

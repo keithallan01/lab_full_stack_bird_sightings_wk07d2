@@ -10,10 +10,11 @@ Sightings.prototype.bindEvents = function () {
   PubSub.subscribe('SightingView:sighting-delete-clicked', (evt) => {
     this.deleteSighting(evt.detail);
   });
+  // subscribe to "new sighting submitted"
   PubSub.subscribe('SightingView: sighting-submitted', (evt) => {
     this.postNewSighting(evt.detail);
+    // post the new sighting
   });
-  // subscribe to "new sighting submitted"
 };
 
 Sightings.prototype.getData = function () {
@@ -37,8 +38,8 @@ Sightings.prototype.postNewSighting = function (evt) {
   // ask req.helper to post with incoming event
   // with the response from server: publish the entire list of viewings
     this.request.post(evt)
-      .then((sightings) => {
-        PubSub.publish('Sightings:data-loaded', sightings);
+      .then((sightings) => { // this happens after the request (post request) gets fulfilled by the server side
+        PubSub.publish('Sightings:data-loaded', sightings); // it returns all the bird data and publishes it for the view to render
     })
     .catch(console.error);
 };
