@@ -2,6 +2,15 @@ const RequestHelper = function (url) {
   this.url = url;
 };
 
+RequestHelper.prototype.post = function (evt) {
+  return fetch(this.url, {
+    method: 'POST',
+    body: JSON.stringify(evt),
+    headers: { 'Content-Type': 'application/json'}
+  })
+    .then((response) => response.json());
+}
+
 RequestHelper.prototype.get = function () {
   return fetch(this.url)
     .then((response) => response.json());

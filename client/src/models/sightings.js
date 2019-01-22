@@ -10,6 +10,7 @@ Sightings.prototype.bindEvents = function () {
   PubSub.subscribe('SightingView:sighting-delete-clicked', (evt) => {
     this.deleteSighting(evt.detail);
   });
+  // subscribe to "new sighting submitted"
 };
 
 Sightings.prototype.getData = function () {
@@ -26,6 +27,12 @@ Sightings.prototype.deleteSighting = function (sightingId) {
       PubSub.publish('Sightings:data-loaded', sightings);
     })
     .catch(console.error);
+};
+
+ClassName.prototype.postNewSighting = function () {
+  // create a new request helper with this.url
+  // ask req.helper to post with incoming event
+  // with the response from server: publish the entire list of viewings
 };
 
 module.exports = Sightings;
